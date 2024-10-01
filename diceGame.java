@@ -3,10 +3,13 @@ import java.util.Random;
 class diceGame {
     public static void main (String[] args){
         
-
+        
         //Sæt player score til 0
         //evt skriv eget navn
         //evt egen player class
+        var player1 = diceGame.player();
+
+
         var player1Score = 0;
         var player2Score = 0;
 

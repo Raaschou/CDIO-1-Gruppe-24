@@ -83,13 +83,13 @@ class diceGame {
                             + ", your score is now: " + player2Score);
 
                     if (terning1 == terning2) {
-                        if (!(terning1 == 1)) {
+                        if (!(terning1 == 1) && player2Score > 40) {
                             System.out.println(player2 + ", you rolled a pair! You gain another roll");
                             terning1 = random.nextInt(6) + 1;
                             terning2 = random.nextInt(6) + 1;
-                            player1Score = player1Score + terning1 + terning2;
-                            System.out.println(player1 + " you just rolled: " + terning1 + " & " + terning2
-                                    + ", your score is now: " + player1Score);
+                            player2Score = player2Score + terning1 + terning2;
+                            System.out.println(player2 + " you just rolled: " + terning1 + " & " + terning2
+                                    + ", your score is now: " + player2Score);
                         } else {
                             player2Score = 0;
                             System.out.println(player2 + ", you rolled snake eyes! You lose all your points: " + player2Score);

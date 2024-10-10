@@ -56,6 +56,8 @@ class diceGame {
                     if (player1Score >= 40) {
                         wongamesby1++;
                         System.out.println(name1 + " just won with a score of " + player1Score + "! Now you've won a total of " + wongamesby1 + " games.");
+                        k = k + 1;
+                        break;
                     }
 
                 } else { // Player 2's turn
@@ -72,6 +74,8 @@ class diceGame {
                     if (player2Score >= 40) {
                         wongamesby2++;
                         System.out.println(name2 + " just won with a score of " + player2Score + "! Now you've won a total of " + wongamesby2 + " games.");
+                        k = k + 1;
+                        break;
                     }
                 }
             }

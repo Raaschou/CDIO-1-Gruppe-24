@@ -3,7 +3,7 @@ import java.util.Random;
 class diceGame {
     public static void main(String[] args) {
 
-        // Random gen
+        // Lav random generator
         Random random = new Random();
 
         // Sæt player score til 0
@@ -25,16 +25,6 @@ class diceGame {
         String player2 = "";
         scanner.close();
 
-        int kastForPlayer1 = random.nextInt(6) + 1;
-        int kastForPlayer2 = random.nextInt(6) + 1;
-        if (kastForPlayer1 > kastForPlayer2) {
-            player1 = name1;
-            player2 = name2;
-        } else {
-            player2 = name1;
-            player1 = name2;
-        }
-
         int player1Score = 0;
         int player2Score = 0;
 
@@ -49,7 +39,23 @@ class diceGame {
         for (int t = 0; t < 5; t++) {
             player1Score = 0;
             player2Score = 0;
-
+            // Slå om hvem der stater
+            int kastForPlayer1 = random.nextInt(6) + 1;
+            int kastForPlayer2 = random.nextInt(6) + 1;
+            if (kastForPlayer1 > kastForPlayer2) {
+                player1 = name1;
+                player2 = name2;
+                /* int storedWins1 = wongamesby2;
+                wongamesby2 = wongamesby1;
+                wongamesby1 = storedWins1; */
+            } else {
+                int storedWins2 = wongamesby1;
+                wongamesby1 = wongamesby2;
+                wongamesby2 = storedWins2;
+                player2 = name1;
+                player1 = name2;
+                
+            }
             for (int i = 0; true; i++) {
                 // Terningkast for begge players
 
@@ -57,19 +63,22 @@ class diceGame {
                     terning1 = random.nextInt(6) + 1;
                     terning2 = random.nextInt(6) + 1;
                     player1Score = player1Score + terning1 + terning2;
-                    System.out.println(player1 + " you just rolled: " + terning1 + " & " + terning2
-                            + ", your score is now: " + player1Score);
+                    System.out.println(player1 + " you just rolled: " + terning1 + " & "
+                            + terning2 + ", your score is now: " + player1Score);
+                    // Tjek om der bliver slået et par
                     if (terning1 == terning2) {
-                        if (!(terning1 == 1)) {
+                        // Hvis det ikke er et par ettere og personen ikke har vundet allerede, slår de
+                        // igen
+                        if (!(terning1 == 1) && player1Score < 40) {
                             System.out.println(player1 + ", you rolled a pair! You gain another roll!");
                             terning1 = random.nextInt(6) + 1;
                             terning2 = random.nextInt(6) + 1;
                             player1Score = player1Score + terning1 + terning2;
-                            System.out.println(player1 + " you just rolled: " + terning1 + " & " + terning2
-                                    + ", your score is now: " + player1Score);
+                            System.out.println(player1 + " you just rolled: " + terning1 + " & "
+                                    + terning2 + ", your score is now: " + player1Score);
                         } else {
                             player1Score = 0;
-                            System.out.println(player1 + ", you rolled snake eyes! You lose all your points!");
+                            System.out.println(player1 + ", you rolled snake eyes! You lose all your points:" + player1Score);
                         }
                     }
 
@@ -81,7 +90,6 @@ class diceGame {
                     player2Score = player2Score + terning1 + terning2;
                     System.out.println(player2 + " you just rolled: " + terning1 + " & " + terning2
                             + ", your score is now: " + player2Score);
-
                     if (terning1 == terning2) {
                         if (!(terning1 == 1) && player2Score > 40) {
                             System.out.println(player2 + ", you rolled a pair! You gain another roll");
@@ -92,7 +100,8 @@ class diceGame {
                                     + ", your score is now: " + player2Score);
                         } else {
                             player2Score = 0;
-                            System.out.println(player2 + ", you rolled snake eyes! You lose all your points: " + player2Score);
+                            System.out.println(
+                                    player2 + ", you rolled snake eyes! You lose all your points: " + player2Score);
                         }
                     }
 

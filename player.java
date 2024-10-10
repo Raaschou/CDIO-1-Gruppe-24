@@ -1,5 +1,5 @@
-public class player {
-    static void main (String[] args) {
+class Player {
+    static String player() {
         var scanner = new java.util.Scanner(System.in);
         scanner.useLocale(java.util.Locale.ENGLISH);   
         

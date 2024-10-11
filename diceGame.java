@@ -5,34 +5,28 @@ class diceGame {
 
         // Lav random generator
         Random random = new Random();
-
+        Dice dice = new Dice();
         // Sæt player .playerScore til 0
         // evt skriv eget navn
         // evt egen player class
-       
-       var scanner = new java.util.Scanner(System.in);
+
+        var scanner = new java.util.Scanner(System.in);
         scanner.useLocale(java.util.Locale.ENGLISH);
-    /*
-        System.out.println("Hello player 1 please enter your name.");
-
-        String name1 = scanner.nextLine();
-
-        System.out.println("Hello player 2 please enter your name.");
-
-        String name2 = scanner.nextLine(); */
+        /*
+         * System.out.println("Hello player 1 please enter your name.");
+         * 
+         * String name1 = scanner.nextLine();
+         * 
+         * System.out.println("Hello player 2 please enter your name.");
+         * 
+         * String name2 = scanner.nextLine();
+         */
         System.out.println("Hello player 1 please enter your name.");
         Player player1 = new Player(scanner.nextLine(), 0, 0);
         System.out.println("Hello player 2 please enter your name.");
         Player player2 = new Player(scanner.nextLine(), 0, 0);
 
-
-/* 
-        String player1 = "";
-        String player2 = ""; */
         scanner.close();
-
-        /* int player1.playerScore = 0;
-        int player2.playerScore = 0; */
 
         // evt opret Terning class
         int terning1 = 0;
@@ -46,29 +40,31 @@ class diceGame {
             player1.playerScore = 0;
             player2.playerScore = 0;
             // Slå om hvem der stater
-            /* int kastForPlayer1 = random.nextInt(6) + 1;
-            int kastForPlayer2 = random.nextInt(6) + 1;
-            if (kastForPlayer1 > kastForPlayer2) {
-                player1 = name1;
-                player2 = name2;
-                /* int storedWins1 = wongamesby2;
-                wongamesby2 = wongamesby1;
-                wongamesby1 = storedWins1;
-            } else {
-                int storedWins2 = wongamesby1;
-                wongamesby1 = wongamesby2;
-                wongamesby2 = storedWins2;
-                player2 = name1;
-                player1 = name2;
-                
-            } */
+            /*
+             * int kastForPlayer1 = dice.roll();
+             * int kastForPlayer2 = dice.roll();
+             * if (kastForPlayer1 > kastForPlayer2) {
+             * player1 = name1;
+             * player2 = name2;
+             * /* int storedWins1 = wongamesby2;
+             * wongamesby2 = wongamesby1;
+             * wongamesby1 = storedWins1;
+             * } else {
+             * int storedWins2 = wongamesby1;
+             * wongamesby1 = wongamesby2;
+             * wongamesby2 = storedWins2;
+             * player2 = name1;
+             * player1 = name2;
+             * 
+             * }
+             */
             for (int i = 0; true; i++) {
                 // Terningkast for begge players
 
                 for (int j = 0; j < 1; j++) {
-                    if()
-                    terning1 = random.nextInt(6) + 1;
-                    terning2 = random.nextInt(6) + 1;
+
+                    terning1 = dice.roll();
+                    terning2 = dice.roll();
                     player1.playerScore = player1.playerScore + terning1 + terning2;
                     System.out.println(player1.name + " you just rolled: " + terning1 + " & "
                             + terning2 + ", your score is now: " + player1.playerScore);
@@ -78,36 +74,38 @@ class diceGame {
                         // igen
                         if (!(terning1 == 1) && player1.playerScore < 40) {
                             System.out.println(player1.name + ", you rolled a pair! You gain another roll!");
-                            terning1 = random.nextInt(6) + 1;
-                            terning2 = random.nextInt(6) + 1;
+                            terning1 = dice.roll();
+                            terning2 = dice.roll();
                             player1.playerScore = player1.playerScore + terning1 + terning2;
                             System.out.println(player1.name + " you just rolled: " + terning1 + " & "
                                     + terning2 + ", your score is now: " + player1.playerScore);
                         } else {
                             player1.playerScore = 0;
-                            System.out.println(player1.name + ", you rolled snake eyes! You lose all your points:" + player1.playerScore);
+                            System.out.println(player1.name + ", you rolled snake eyes! You lose all your points:"
+                                    + player1.playerScore);
                         }
                     }
 
                 }
 
                 for (int j = 0; j < 1; j++) {
-                    terning1 = random.nextInt(6) + 1;
-                    terning2 = random.nextInt(6) + 1;
+                    terning1 = dice.roll();
+                    terning2 = dice.roll();
                     player2.playerScore = player2.playerScore + terning1 + terning2;
                     System.out.println(player2.name + " you just rolled: " + terning1 + " & " + terning2
                             + ", your score is now: " + player2.playerScore);
                     if (terning1 == terning2) {
                         if (!(terning1 == 1) && player2.playerScore > 40) {
                             System.out.println(player2.name + ", you rolled a pair! You gain another roll");
-                            terning1 = random.nextInt(6) + 1;
-                            terning2 = random.nextInt(6) + 1;
+                            terning1 = dice.roll();
+                            terning2 = dice.roll();
                             player2.playerScore = player2.playerScore + terning1 + terning2;
                             System.out.println(player2.name + " you just rolled: " + terning1 + " & " + terning2
                                     + ", your score is now: " + player2.playerScore);
                         } else {
                             player2.playerScore = 0;
-                            System.out.println(player2.name + ", you rolled snake eyes! You lose all your points: " + player2.playerScore);
+                            System.out.println(player2.name + ", you rolled snake eyes! You lose all your points: "
+                                    + player2.playerScore);
                         }
                     }
 

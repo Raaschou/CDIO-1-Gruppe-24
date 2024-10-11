@@ -1,5 +1,18 @@
 class Player {
-    static String player() {
+    String name;
+    int playerScore;
+    int wonGames;
+
+    Player(String name, int playerScore, int wonGames){
+        this.name = name;
+        this.playerScore = playerScore;
+        this.wonGames = wonGames;
+    }
+
+    /* static String player() {
+        
+        
+        
         var scanner = new java.util.Scanner(System.in);
         scanner.useLocale(java.util.Locale.ENGLISH);   
         
@@ -13,5 +26,5 @@ class Player {
 
 
 
-    }
+    } */
 }

@@ -1,5 +1,5 @@
-class dice{
+class Dice{
     int diceFace;
-    
+
 
 }

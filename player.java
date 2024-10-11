@@ -1,3 +1,5 @@
+import java.util.Random;
+
 class Player {
     String name;
     int playerScore;
@@ -9,22 +11,12 @@ class Player {
         this.wonGames = wonGames;
     }
 
-    /* static String player() {
-        
-        
-        
-        var scanner = new java.util.Scanner(System.in);
-        scanner.useLocale(java.util.Locale.ENGLISH);   
-        
-        
-        System.out.println("Hello player1 please enter your name.");
+     static boolean start() {
+        boolean start = false;
+        Random random = new Random();
+        int throwForPlayer1 = random.nextInt(6) + 1;
+        int throwForPlayer2 = random.nextInt(6) + 1;
+        return start;
 
-        String Name1 = scanner.nextLine();
-        
-    
-        System.out.println("Hello "+ Name1 + " please enter your name.");
-
-
-
-    } */
+    } 
 }

@@ -139,31 +139,79 @@ class diceGame {
 
                 // Tjek om de begge er over 40, højeste score vinder
                 // Ellers hvis kun den ene er over vinder den pågældende person
+                
                 if (player1.playerScore >= 40 && player2.playerScore >= 40) {
+                    // mit forsøg på at implementere regl 4.
+                                        
+                    //original kode
                     if (player1.playerScore > player2.playerScore) {
-                        player1.wonGames++;
+                        //mit forsøg
+                        System.out.println("You're  both close to winning roll a pair to win..." + "\n");
+                        player1.lastRoll[0] = dice1.diceFace;
+                        player1.lastRoll[1] = dice2.diceFace;
+                        if (dice1.diceFace==dice2.diceFace){
                         System.out.println(player1.name + " just won with a score of " + player1.playerScore
-                                + "! Now you've won a total of " + player1.wonGames + " games.");
+                                        + "! Now you've won a total of " + player1.wonGames + " games.");
+                        
+                        player1.wonGames++;               
                         break;
+                        
+                        }else{
+                        System.out.println("Sorry try again " + player1.name + "..." + "\n");
+                        continue;
+                        }
+                        //original kode
+                        
                     } else {
-                        player2.wonGames++;
+                        // mit forsøg
+                        System.out.println("You're both close to winning roll a pair to win..." + "\n");
+                        player1.lastRoll[0] = dice1.diceFace;
+                        player1.lastRoll[1] = dice2.diceFace;
+                        if (dice1.diceFace==dice2.diceFace){
                         System.out.println(player2.name + " just won with a score of " + player2.playerScore
-                                + "! Now you've won a total of " + player2.wonGames + " games.");
+                                        + "! Now you've won a total of " + player2.wonGames + " games.");
+                        player2.wonGames++;               
                         break;
+                        
+                        }else{
+                        System.out.println("Sorry try again " + player2.name + "..." + "\n");
+                        continue;
+                        }
+                        // original
+                        
                     }
 
                 } else if (player1.playerScore >= 40) {
-                    player1.wonGames++;
-                    System.out.println(player1.name + " just won with a score of " + player1.playerScore
-                            + "! Now you've won a total of " + player1.wonGames + " games.");
-                    break;
+                    System.out.println("You're close to winning " +player1.name+ " roll a pair to win..." + "\n");
+                        player1.lastRoll[0] = dice1.diceFace;
+                        player1.lastRoll[1] = dice2.diceFace;
+                        if (dice1.diceFace==dice2.diceFace){
+                        System.out.println(player2.name + " just won with a score of " + player1.playerScore
+                                        + "! Now you've won a total of " + player1.wonGames + " games.");
+                        player1.wonGames++;               
+                        break;
+                        
+                        }else{
+                        System.out.println("Sorry try again " + player1.name + "..." + "\n");
+                        continue;
+                        }
                 } else if (player2.playerScore >= 40) {
-                    player2.wonGames++;
-                    System.out.println(player2.name + " just won with a score of " + player2.playerScore
-                            + "! Now you've won a total of " + player2.wonGames + " games.");
-                    break;
+                    System.out.println("You're close to winning " +player1.name+ " roll a pair to win..." + "\n");
+                        player1.lastRoll[0] = dice1.diceFace;
+                        player1.lastRoll[1] = dice2.diceFace;
+                        if (dice1.diceFace==dice2.diceFace){
+                        System.out.println(player2.name + " just won with a score of " + player2.playerScore
+                                        + "! Now you've won a total of " + player2.wonGames + " games.");
+                        player2.wonGames++;               
+                        break;
+                        
+                        }else{
+                        System.out.println("Sorry try again " + player2.name + "..." + "\n");
+                        continue;
+                        }
                 }
             }
+            
             scanner.close();
         }
     }

@@ -16,52 +16,27 @@ class diceGame {
         Player player2 = new Player(scanner.nextLine(), 0, 0);
 
         // Antal simuleringer
-        for (int t = 0; t < 5; t++) {
+        for (int t = 1; t < 5; t++) {
             player1.playerScore = 0;
             player2.playerScore = 0;
             
             player1.lastRoll = new int[]{0, 0};
             player2.lastRoll = new int[]{0, 0};
-            System.out.println("Starting game number " + (t + 1));
-            // Slå om hvem der starter
-            /*
-             * int kastForPlayer1 = dice.roll();
-             * int kastForPlayer2 = dice.roll();
-             * if (kastForPlayer1 > kastForPlayer2) {
-             * player1 = name1;
-             * player2 = name2;
-             * /* int storedWins1 = wongamesby2;
-             * wongamesby2 = wongamesby1;
-             * wongamesby1 = storedWins1;
-             * } else {
-             * int storedWins2 = wongamesby1;
-             * wongamesby1 = wongamesby2;
-             * wongamesby2 = storedWins2;
-             * player2 = name1;
-             * player1 = name2;
-             * 
-             * }
-             */
+            
+            System.out.println("\n" + "Starting game number " + (t)+"\n");
+            
             outerloop: for (int i = 0; true; i++) {
                 
-                // Terningkast for begge players
-
-                /*
-                 * Player.start
-                 * System.out.println("Press enter to roll dice!");
-                 * String buttonPress = scanner.nextLine();
-                 * if (!(buttonPress.equals(""))) {
-                 * System.out.println("Wrong button pressed! Try again");
-                 * 
-                 * } else {
-                 */
+                
                 for (int j = 0; j < 1; j++) {
                     dice1.diceFace = dice1.roll();
                     dice2.diceFace = dice2.roll();
-                    
+
+                    // evt.player1.playerScore += dice1.diceFace + dice2.diceFace;
                     player1.playerScore = player1.playerScore + dice1.diceFace + dice2.diceFace;
                     System.out.println(player1.name + " you just rolled: " + dice1.diceFace + " & "
-                            + dice2.diceFace + ", your score is now: " + player1.playerScore);
+                            + dice2.diceFace + ", your score is now: " + player1.playerScore+"\n");
+                            
                     // Tjek om der bliver slået et ens par
                     if (dice1.diceFace == dice2.diceFace) {
                         // Hvis det ikke er et par ettere og personen ikke har vundet allerede, slår de
@@ -98,6 +73,7 @@ class diceGame {
                             player1.lastRoll[1] = dice2.diceFace;
                             System.out.println(player1.name + ", you just rolled: " + dice1.diceFace + " & "
                                     + dice2.diceFace + ", your score is now: " + player1.playerScore);
+                            System.out.println("");
                         } else if(dice1.diceFace == 1) {
                             player1.playerScore = 0;
                             System.out.println(player1.name + ", you rolled snake eyes! You lose all your points: "
@@ -114,7 +90,7 @@ class diceGame {
                     
                     player2.playerScore = player2.playerScore + dice1.diceFace + dice2.diceFace;
                     System.out.println(player2.name + " you just rolled: " + dice1.diceFace + " & "
-                            + dice2.diceFace + ", your score is now: " + player2.playerScore);
+                            + dice2.diceFace + ", your score is now: " + player2.playerScore+"\n");
                     // Tjek om der bliver slået et ens par
                     if (dice1.diceFace == dice2.diceFace) {
                         // Hvis det ikke er et par ettere og personen ikke har vundet allerede, slår de

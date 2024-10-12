@@ -1,17 +1,25 @@
+import java.util.Random;
+
 class Player {
-    static String player() {
-        var scanner = new java.util.Scanner(System.in);
-        scanner.useLocale(java.util.Locale.ENGLISH);   
-        
-        
-        System.out.println("Hello player1 please enter your name.");
+    String name;
+    int playerScore;
+    int wonGames;
+    int[] lastRoll;
 
-        String Name1 = scanner.nextLine();
-        
-    
-        System.out.println("Hello "+ Name1 + " please enter your name.");
-
-
-
+    Player(String name, int playerScore, int wonGames){
+        this.name = name;
+        this.playerScore = playerScore;
+        this.wonGames = wonGames;
+        this.lastRoll = new int[]{0, 0};
     }
+
+     static boolean start() {
+        boolean start = false;
+        Random random = new Random();
+        int throwForPlayer1 = random.nextInt(6) + 1;
+        int throwForPlayer2 = random.nextInt(6) + 1;
+        start = throwForPlayer1 > throwForPlayer2;
+        return start;
+
+    } 
 }

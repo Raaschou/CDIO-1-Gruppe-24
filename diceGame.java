@@ -156,7 +156,7 @@ class diceGame {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace " Sorry try again " + player1.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player1.name + "..." + "\n");
                         continue;
                         }
                         //original kode
@@ -172,7 +172,7 @@ class diceGame {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace " Sorry try again " + player2.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player2.name + "..." + "\n");
                         continue;
                         }
                         // original
@@ -190,7 +190,7 @@ class diceGame {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace " Sorry try again " + player1.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player1.name + "..." + "\n");
                         continue;
                         }
                 } else if (player2.playerScore >= 40) {
@@ -204,7 +204,7 @@ class diceGame {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace " Sorry try again " + player2.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player2.name + "..." + "\n");
                         continue;
                         }
                 }

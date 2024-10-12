@@ -33,8 +33,8 @@ class diceGame {
                 
                 
                 for (int j = 0; j < 1; j++) {
-                    System.out.println("Press Enter to roll both your dice.");
-            scanner.nextLine(); // Wait for the player to press Enter
+                    System.out.println(player1.name + " please press Enter to roll your dice.");
+                    scanner.nextLine(); // Wait for the player to press Enter
                     
                    
                         
@@ -95,6 +95,10 @@ class diceGame {
                     
                 }
                 for (int j = 0; j < 1; j++) {
+
+                    System.out.println(player2.name + " please press Enter to roll your dice.");
+                    scanner.nextLine(); // Wait for the player to press Enter
+                    
                     dice3.diceFace = dice3.roll();
                     dice4.diceFace = dice4.roll();
                     

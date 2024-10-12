@@ -18,7 +18,7 @@ class diceGame {
         Player player2 = new Player(scanner.nextLine(), 0, 0);
 
         // Antal simuleringer
-        for (int t = 1; t < 5; t++) {
+        for (int t = 1; t < 1001; t++) {
             player1.playerScore = 0;
             player2.playerScore = 0;
             
@@ -87,10 +87,10 @@ class diceGame {
                     
                 }
                 for (int j = 0; j < 1; j++) {
-                    dice1.diceFace = dice3.roll();
-                    dice2.diceFace = dice4.roll();
+                    dice3.diceFace = dice3.roll();
+                    dice4.diceFace = dice4.roll();
                     
-                    player2.playerScore = player2.playerScore + dice1.diceFace + dice3.diceFace;
+                    player2.playerScore = player2.playerScore + dice3.diceFace + dice4.diceFace;
                     System.out.println(player2.name + " you just rolled: " + dice3.diceFace + " & "
                             + dice4.diceFace + ", your score is now: " + player2.playerScore+"\n");
                     // Tjek om der bliver slået et ens par

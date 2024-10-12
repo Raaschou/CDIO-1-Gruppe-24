@@ -18,7 +18,9 @@ class diceGame {
         Player player2 = new Player(scanner.nextLine(), 0, 0);
 
         // Antal simuleringer
-        for (int t = 1; t < 1001; t++) {
+        for (int t = 1; t <= 2; t++) {
+            
+
             player1.playerScore = 0;
             player2.playerScore = 0;
             
@@ -31,6 +33,12 @@ class diceGame {
                 
                 
                 for (int j = 0; j < 1; j++) {
+                    System.out.println("Press Enter to roll both your dice.");
+            scanner.nextLine(); // Wait for the player to press Enter
+                    
+                   
+                        
+
                     dice1.diceFace = dice1.roll();
                     dice2.diceFace = dice2.roll();
 
@@ -75,7 +83,7 @@ class diceGame {
                             player1.lastRoll[1] = dice2.diceFace;
                             System.out.println(player1.name + ", you just rolled: " + dice1.diceFace + " & "
                                     + dice2.diceFace + ", your score is now: " + player1.playerScore);
-                            System.out.println("");
+                            
                         } else if(dice1.diceFace == 1) {
                             player1.playerScore = 0;
                             System.out.println(player1.name + ", you rolled snake eyes! You lose all your points: "
@@ -143,7 +151,9 @@ class diceGame {
                 // Ellers hvis kun den ene er over vinder den pågældende person
                 
                 if (player1.playerScore >= 40 && player2.playerScore >= 40) {
-
+                    if (dice1.diceFace == dice2.diceFace&& dice3.diceFace == dice4.diceFace){
+                        continue;
+                    }
                         if (dice1.diceFace == dice2.diceFace) {
                             player1.wonGames++;
                             System.out.println(player1.name + " just won with a score of " + player1.playerScore
@@ -187,14 +197,14 @@ class diceGame {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player2.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice3.diceFace + " & " + dice4.diceFace + " Sorry try again " + player2.name + "..." + "\n");
                         
                         }
                 }
             }
             
-            scanner.close();
-        }
+            
+        } scanner.close();
     }
 
     public static boolean rule3(int diceFace1, int diceFace2) {

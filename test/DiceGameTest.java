@@ -18,7 +18,7 @@ class DiceGameTest {
         Player player2 = new Player("TestPlayer2", 0, 0);
 
         // Antal simuleringer
-        for (int t = 1; t <= 1001; t++) {
+        for (int t = 1; t <= 10000; t++) {
             
 
             player1.playerScore = 0;

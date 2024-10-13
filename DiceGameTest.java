@@ -13,12 +13,12 @@ class DiceGameTest {
 
         // Spørg om navn og initier? player class for begge spillere
         System.out.println("Hello player 1 please enter your name.");
-        Player player1 = new Player(TestPlayer1, 0, 0);
+        Player player1 = new Player("TestPlayer1", 0, 0);
         System.out.println("Hello player 2 please enter your name.");
-        Player player2 = new Player(TestPlayer2, 0, 0);
+        Player player2 = new Player("TestPlayer2", 0, 0);
 
         // Antal simuleringer
-        for (int t = 1; t <= 2; t++) {
+        for (int t = 1; t <= 10001; t++) {
             
 
             player1.playerScore = 0;
@@ -33,9 +33,9 @@ class DiceGameTest {
                 
                 
                 for (int j = 0; j < 1; j++) {
-                    System.out.println(player1.name + " please press Enter to roll your dice.");
+                    /* System.out.println(player1.name + " please press Enter to roll your dice.");
                     scanner.nextLine(); // Wait for the player to press Enter
-                    
+                     */
                    
                         
 
@@ -91,13 +91,13 @@ class DiceGameTest {
                         } 
                     }
                     player1.lastRoll[0] = dice1.diceFace;
-                    player1.lastRoll[1] = dice1.diceFace;
+                    player1.lastRoll[1] = dice2.diceFace;
                     
                 }
                 for (int j = 0; j < 1; j++) {
 
-                    System.out.println(player2.name + " please press Enter to roll your dice.");
-                    scanner.nextLine(); // Wait for the player to press Enter
+                    /* System.out.println(player2.name + " please press Enter to roll your dice.");
+                    scanner.nextLine(); // Wait for the player to press Enter */
                     
                     dice3.diceFace = dice3.roll();
                     dice4.diceFace = dice4.roll();
@@ -123,8 +123,8 @@ class DiceGameTest {
 
                         if (player2.playerScore < 40 && dice3.diceFace != 1) {
                             System.out.println(player2.name + ", you rolled a pair! You gain another roll!");
-                            dice1.diceFace = dice3.roll();
-                            dice2.diceFace = dice4.roll();
+                            dice3.diceFace = dice3.roll();
+                            dice4.diceFace = dice4.roll();
                             player2.playerScore = player2.playerScore + dice3.diceFace + dice4.diceFace;
                             if (dice3.diceFace == 6 && dice4.diceFace == 6) {
                                 if (rule3(player2.lastRoll[0], player2.lastRoll[1])) {
@@ -186,7 +186,7 @@ class DiceGameTest {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player1.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + ". Sorry try again, " + player1.name + "..." + "\n");
                         
                         }
                 } else if (player2.playerScore >= 40) {
@@ -201,7 +201,7 @@ class DiceGameTest {
                         break;
                         
                         }else{
-                        System.out.println("You rolled: " + dice3.diceFace + " & " + dice4.diceFace + " Sorry try again " + player2.name + "..." + "\n");
+                        System.out.println("You rolled: " + dice3.diceFace + " & " + dice4.diceFace + ". Sorry try again, " + player2.name + "..." + "\n");
                         
                         }
                 }

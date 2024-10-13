@@ -91,7 +91,7 @@ class DiceGame {
                         } 
                     }
                     player1.lastRoll[0] = dice1.diceFace;
-                    player1.lastRoll[1] = dice1.diceFace;
+                    player1.lastRoll[1] = dice2.diceFace;
                     
                 }
                 for (int j = 0; j < 1; j++) {

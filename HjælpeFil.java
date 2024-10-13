@@ -1,4 +1,4 @@
-Class HjælpeFil{
+//Class HjælpeFil{
      // Slå om hvem der starter
             /*
              * int kastForPlayer1 = dice.roll();
@@ -30,4 +30,4 @@ Class HjælpeFil{
                  * 
                  * } else {
                  */
-}
+//}

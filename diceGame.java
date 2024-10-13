@@ -63,7 +63,7 @@ class diceGame {
                         player1.lastRoll[0] = dice1.diceFace;
                         player1.lastRoll[1] = dice2.diceFace;
 
-                        if (player1.playerScore < 40) {
+                        if (player1.playerScore < 40 && dice1.diceFace != 1) {
                             System.out.println(player1.name + ", you rolled a pair! You gain another roll!");
                             dice1.diceFace = dice1.roll();
                             dice2.diceFace = dice2.roll();
@@ -121,7 +121,7 @@ class diceGame {
                         player2.lastRoll[0] = dice3.diceFace;
                         player2.lastRoll[1] = dice4.diceFace;
 
-                        if (player2.playerScore < 40) {
+                        if (player2.playerScore < 40 && dice3.diceFace != 1) {
                             System.out.println(player2.name + ", you rolled a pair! You gain another roll!");
                             dice1.diceFace = dice3.roll();
                             dice2.diceFace = dice4.roll();

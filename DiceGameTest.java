@@ -1,4 +1,4 @@
-class DiceGame {
+class DiceGameTest {
     public static void main(String[] args) {
 
         // Initiering af terning objekt
@@ -13,9 +13,9 @@ class DiceGame {
 
         // Spørg om navn og initier? player class for begge spillere
         System.out.println("Hello player 1 please enter your name.");
-        Player player1 = new Player(scanner.nextLine(), 0, 0);
+        Player player1 = new Player(TestPlayer1, 0, 0);
         System.out.println("Hello player 2 please enter your name.");
-        Player player2 = new Player(scanner.nextLine(), 0, 0);
+        Player player2 = new Player(TestPlayer2, 0, 0);
 
         // Antal simuleringer
         for (int t = 1; t <= 2; t++) {

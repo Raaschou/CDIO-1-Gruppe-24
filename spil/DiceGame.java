@@ -18,7 +18,7 @@ class DiceGame {
         Player player2 = new Player(scanner.nextLine(), 0, 0);
 
         // Antal simuleringer
-        for (int t = 1; t <= 2; t++) {
+        for (int t = 1; t <= 1; t++) {
             
 
             player1.playerScore = 0;

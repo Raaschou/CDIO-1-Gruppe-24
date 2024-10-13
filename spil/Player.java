@@ -13,13 +13,4 @@ class Player {
         this.lastRoll = new int[]{0, 0};
     }
 
-     static boolean start() {
-        boolean start = false;
-        Random random = new Random();
-        int throwForPlayer1 = random.nextInt(6) + 1;
-        int throwForPlayer2 = random.nextInt(6) + 1;
-        start = throwForPlayer1 > throwForPlayer2;
-        return start;
-
-    } 
 }

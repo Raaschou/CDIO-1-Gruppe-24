@@ -1,9 +1,11 @@
-class diceGame {
+class DiceGame {
     public static void main(String[] args) {
 
         // Initiering af terning objekt
         Dice dice1 = new Dice(0);
         Dice dice2 = new Dice(0);
+        Dice dice3 = new Dice(0);
+        Dice dice4 = new Dice(0);
 
         // Initiering af scanner
         var scanner = new java.util.Scanner(System.in);
@@ -16,52 +18,35 @@ class diceGame {
         Player player2 = new Player(scanner.nextLine(), 0, 0);
 
         // Antal simuleringer
-        for (int t = 0; t < 5; t++) {
+        for (int t = 1; t <= 2; t++) {
+            
+
             player1.playerScore = 0;
             player2.playerScore = 0;
             
             player1.lastRoll = new int[]{0, 0};
             player2.lastRoll = new int[]{0, 0};
-            System.out.println("Starting game number " + (t + 1));
-            // Slå om hvem der starter
-            /*
-             * int kastForPlayer1 = dice.roll();
-             * int kastForPlayer2 = dice.roll();
-             * if (kastForPlayer1 > kastForPlayer2) {
-             * player1 = name1;
-             * player2 = name2;
-             * /* int storedWins1 = wongamesby2;
-             * wongamesby2 = wongamesby1;
-             * wongamesby1 = storedWins1;
-             * } else {
-             * int storedWins2 = wongamesby1;
-             * wongamesby1 = wongamesby2;
-             * wongamesby2 = storedWins2;
-             * player2 = name1;
-             * player1 = name2;
-             * 
-             * }
-             */
+            
+            System.out.println("\n" + "Starting game number " + (t)+"\n");
+            
             outerloop: for (int i = 0; true; i++) {
                 
-                // Terningkast for begge players
-
-                /*
-                 * Player.start
-                 * System.out.println("Press enter to roll dice!");
-                 * String buttonPress = scanner.nextLine();
-                 * if (!(buttonPress.equals(""))) {
-                 * System.out.println("Wrong button pressed! Try again");
-                 * 
-                 * } else {
-                 */
+                
                 for (int j = 0; j < 1; j++) {
+                    System.out.println(player1.name + " please press Enter to roll your dice.");
+                    scanner.nextLine(); // Wait for the player to press Enter
+                    
+                   
+                        
+
                     dice1.diceFace = dice1.roll();
                     dice2.diceFace = dice2.roll();
-                    
+
+                    // evt.player1.playerScore += dice1.diceFace + dice2.diceFace;
                     player1.playerScore = player1.playerScore + dice1.diceFace + dice2.diceFace;
                     System.out.println(player1.name + " you just rolled: " + dice1.diceFace + " & "
-                            + dice2.diceFace + ", your score is now: " + player1.playerScore);
+                            + dice2.diceFace + ", your score is now: " + player1.playerScore+"\n");
+                            
                     // Tjek om der bliver slået et ens par
                     if (dice1.diceFace == dice2.diceFace) {
                         // Hvis det ikke er et par ettere og personen ikke har vundet allerede, slår de
@@ -78,7 +63,7 @@ class diceGame {
                         player1.lastRoll[0] = dice1.diceFace;
                         player1.lastRoll[1] = dice2.diceFace;
 
-                        if (player1.playerScore < 40) {
+                        if (player1.playerScore < 40 && dice1.diceFace != 1) {
                             System.out.println(player1.name + ", you rolled a pair! You gain another roll!");
                             dice1.diceFace = dice1.roll();
                             dice2.diceFace = dice2.roll();
@@ -98,6 +83,7 @@ class diceGame {
                             player1.lastRoll[1] = dice2.diceFace;
                             System.out.println(player1.name + ", you just rolled: " + dice1.diceFace + " & "
                                     + dice2.diceFace + ", your score is now: " + player1.playerScore);
+                            
                         } else if(dice1.diceFace == 1) {
                             player1.playerScore = 0;
                             System.out.println(player1.name + ", you rolled snake eyes! You lose all your points: "
@@ -105,21 +91,25 @@ class diceGame {
                         } 
                     }
                     player1.lastRoll[0] = dice1.diceFace;
-                    player1.lastRoll[1] = dice1.diceFace;
-                    /* } */
+                    player1.lastRoll[1] = dice2.diceFace;
+                    
                 }
                 for (int j = 0; j < 1; j++) {
-                    dice1.diceFace = dice1.roll();
-                    dice2.diceFace = dice2.roll();
+
+                    System.out.println(player2.name + " please press Enter to roll your dice.");
+                    scanner.nextLine(); // Wait for the player to press Enter
                     
-                    player2.playerScore = player2.playerScore + dice1.diceFace + dice2.diceFace;
-                    System.out.println(player2.name + " you just rolled: " + dice1.diceFace + " & "
-                            + dice2.diceFace + ", your score is now: " + player2.playerScore);
+                    dice3.diceFace = dice3.roll();
+                    dice4.diceFace = dice4.roll();
+                    
+                    player2.playerScore = player2.playerScore + dice3.diceFace + dice4.diceFace;
+                    System.out.println(player2.name + " you just rolled: " + dice3.diceFace + " & "
+                            + dice4.diceFace + ", your score is now: " + player2.playerScore+"\n");
                     // Tjek om der bliver slået et ens par
-                    if (dice1.diceFace == dice2.diceFace) {
+                    if (dice3.diceFace == dice4.diceFace) {
                         // Hvis det ikke er et par ettere og personen ikke har vundet allerede, slår de
                         // igen
-                        if (dice1.diceFace == 6) {
+                        if (dice3.diceFace == 6) {
                             if (rule3(player2.lastRoll[0], player2.lastRoll[1])) {
                                 System.out.println(player2.name + ", you rolled two pairs of sixes in a row! You win!");
                                 player2.wonGames++;
@@ -128,15 +118,15 @@ class diceGame {
                                 break outerloop;
                             }
                         }
-                        player2.lastRoll[0] = dice1.diceFace;
-                        player2.lastRoll[1] = dice2.diceFace;
+                        player2.lastRoll[0] = dice3.diceFace;
+                        player2.lastRoll[1] = dice4.diceFace;
 
-                        if (player2.playerScore < 40) {
+                        if (player2.playerScore < 40 && dice3.diceFace != 1) {
                             System.out.println(player2.name + ", you rolled a pair! You gain another roll!");
-                            dice1.diceFace = dice1.roll();
-                            dice2.diceFace = dice2.roll();
-                            player2.playerScore = player2.playerScore + dice1.diceFace + dice2.diceFace;
-                            if (dice1.diceFace == 6 && dice2.diceFace == 6) {
+                            dice1.diceFace = dice3.roll();
+                            dice2.diceFace = dice4.roll();
+                            player2.playerScore = player2.playerScore + dice3.diceFace + dice4.diceFace;
+                            if (dice3.diceFace == 6 && dice4.diceFace == 6) {
                                 if (rule3(player2.lastRoll[0], player2.lastRoll[1])) {
                                     System.out.println(
                                             player2.name + ", you rolled two pairs of sixes in a row! You win!");
@@ -146,50 +136,79 @@ class diceGame {
                                     break outerloop;
                                 }
                             }
-                            player2.lastRoll[0] = dice1.diceFace;
-                            player2.lastRoll[1] = dice2.diceFace;
-                            System.out.println(player2.name + ", you just rolled: " + dice1.diceFace + " & "
-                                    + dice2.diceFace + ", your score is now: " + player2.playerScore);
-                        } else if(dice1.diceFace == 1) {
+                            player2.lastRoll[0] = dice3.diceFace;
+                            player2.lastRoll[1] = dice4.diceFace;
+                            System.out.println(player2.name + ", you just rolled: " + dice3.diceFace + " & "
+                                    + dice4.diceFace + ", your score is now: " + player2.playerScore+ "\n");
+                        } else if(dice3.diceFace == 1) {
                             player2.playerScore = 0;
                             System.out.println(player2.name + ", you rolled snake eyes! You lose all your points: "
                                     + player2.playerScore);
                         } 
                     }
-                    player2.lastRoll[0] = dice1.diceFace;
-                    player2.lastRoll[1] = dice1.diceFace;
+                    player2.lastRoll[0] = dice3.diceFace;
+                    player2.lastRoll[1] = dice4.diceFace;
 
                 }
 
                 // Tjek om de begge er over 40, højeste score vinder
                 // Ellers hvis kun den ene er over vinder den pågældende person
+                
                 if (player1.playerScore >= 40 && player2.playerScore >= 40) {
-                    if (player1.playerScore > player2.playerScore) {
-                        player1.wonGames++;
-                        System.out.println(player1.name + " just won with a score of " + player1.playerScore
-                                + "! Now you've won a total of " + player1.wonGames + " games.");
-                        break;
-                    } else {
-                        player2.wonGames++;
-                        System.out.println(player2.name + " just won with a score of " + player2.playerScore
-                                + "! Now you've won a total of " + player2.wonGames + " games.");
-                        break;
+                    if (dice1.diceFace == dice2.diceFace&& dice3.diceFace == dice4.diceFace){
+                        continue;
                     }
+                        if (dice1.diceFace == dice2.diceFace) {
+                            player1.wonGames++;
+                            System.out.println(player1.name + " just won with a score of " + player1.playerScore
+                                    + "! Now you've won a total of " + player1.wonGames + " games.");
+                            break;
+                        
+                    } else if (dice3.diceFace == dice4.diceFace) {
+                            player2.wonGames++;
+                            System.out.println(player2.name + " just won with a score of " + player2.playerScore
+                                    + "! Now you've won a total of " + player2.wonGames + " games.");
+                            break;
+                        }
+                    
+                    // Hvis ingen vinder, bed begge spillere om at rulle igen.
+                    System.out.println("You're both close to winning; roll a pair to win..." + "\n");
 
                 } else if (player1.playerScore >= 40) {
-                    player1.wonGames++;
-                    System.out.println(player1.name + " just won with a score of " + player1.playerScore
-                            + "! Now you've won a total of " + player1.wonGames + " games.");
-                    break;
+                    System.out.println("You're close to winning " +player1.name+ " roll a pair to win..." + "\n");
+                        player1.lastRoll[0] = dice1.diceFace;
+                        player1.lastRoll[1] = dice2.diceFace;
+                        if (dice1.diceFace==dice2.diceFace){
+                            player1.wonGames++;
+                        System.out.println(player1.name + " just won with a score of " + player1.playerScore
+                                        + "! Now you've won a total of " + player1.wonGames + " games.");
+                                       
+                        break;
+                        
+                        }else{
+                        System.out.println("You rolled: " + dice1.diceFace + " & " + dice2.diceFace + " Sorry try again " + player1.name + "..." + "\n");
+                        
+                        }
                 } else if (player2.playerScore >= 40) {
-                    player2.wonGames++;
-                    System.out.println(player2.name + " just won with a score of " + player2.playerScore
-                            + "! Now you've won a total of " + player2.wonGames + " games.");
-                    break;
+                    System.out.println("You're close to winning " +player2.name+ " roll a pair to win..." + "\n");
+                        player2.lastRoll[0] = dice3.diceFace;
+                        player2.lastRoll[1] = dice4.diceFace;
+                        if (dice3.diceFace==dice4.diceFace){
+                            player2.wonGames++;
+                        System.out.println(player2.name + " just won with a score of " + player2.playerScore
+                                        + "! Now you've won a total of " + player2.wonGames + " games.");
+                                       
+                        break;
+                        
+                        }else{
+                        System.out.println("You rolled: " + dice3.diceFace + " & " + dice4.diceFace + " Sorry try again " + player2.name + "..." + "\n");
+                        
+                        }
                 }
             }
-            scanner.close();
-        }
+            
+            
+        } scanner.close();
     }
 
     public static boolean rule3(int diceFace1, int diceFace2) {
